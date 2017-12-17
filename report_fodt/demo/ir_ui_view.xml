@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_partner_qweb" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="type">qweb</field>
+        <field name="arch" type="char" file="report_fodt/demo/res.partner.fodt" />
+    </record>
+    <template id="view_res_partner_web2" inherit_id="view_res_partner_qweb">
+        <xpath expr="//text:variable-set[@text:name='Hello']" position="attributes">
+            <attribute name="{urn:oasis:names:tc:opendocument:xmlns:office:1.0}string-value">World23456</attribute>
+        </xpath>
+    </template>
+    <report id="report_res_partner"
+        model="res.partner"
+        report_type="qweb-pdf"
+        string="report_sodt demo"
+        name="report_fodt.view_res_partner_web2"
+    />
+</odoo>
